@@ -1,0 +1,93 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group row">
+            <label class="col-3 col-form-label" for="attackSpeed">Attack Speed</label>
+            <div class="col-9">
+                <input [value]="attackSpeed" (input)="attackSpeed = $event.target.value; calc()" aria-describedby=" attackSpeedHelp " class="form-control ng-untouched ng-pristine ng-valid" step="200" type="number"> </div>
+        </div>
+        <div class="form-group row ">
+            <label class="col-3 col-form-label " for="celebrateLevel ">Celebrate</label>
+            <div class="col-9 ">
+                <select class="form-control ng-untouched ng-pristine ng-valid " [(ngModel)]="celebrateLevel" (change)="calc()" id="celebrateLevel">
+                  <option *ngFor="let level of celebrate;" value={{level.value}}>
+                    {{level.viewValue}}
+                  </option>
+
+                </select>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label class="col-3 col-form-label " for="berzerkLevel">Berzerk</label>
+            <div class="col-9 ">
+                <select class="form-control ng-untouched ng-pristine ng-valid" [(ngModel)]="berzerkLevel" (change)="calc()" id="berzerkLevel">
+                    <option *ngFor="let level of berzerk" value={{level.value}}>
+                        {{level.viewValue}}
+                      </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label class="col-3 col-form-label " for="blitzScroll">Blitz Scroll</label>
+            <div class="col-9 ">
+                <select class="form-control ng-untouched ng-pristine ng-valid" [(ngModel)]="blitzLevel" (change)="calc()" id="blitzScroll">
+                    <option *ngFor="let level of blitzScroll " value={{level.value}}>
+                        {{level.viewValue}}
+                      </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label class="col-3 col-form-label " for="ariesFrenzy">Aries Frenzy</label>
+            <div class="col-9 ">
+                <select class="form-control ng-untouched ng-pristine ng-valid" [(ngModel)]="frenzyLevel" (change)="calc()" id="ariesFrenzy">
+                    <option *ngFor="let level of ariesFrenzy " value={{level.value}}>
+                        {{level.viewValue}}
+                      </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label class="col-3 col-form-label " for="divinity">Divinity</label>
+            <div class="col-9 ">
+                <select class="form-control ng-untouched ng-pristine ng-valid" [(ngModel)]="divinityLevel" (change)="calc()" id="divinity">
+                    <option *ngFor="let level of divinity " value={{level.value}}>
+                        {{level.viewValue}}
+                      </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row ">
+            <label class="col-3 col-form-label " for="furyLevel">Unbridled Fury</label>
+            <div class="col-9 ">
+                <select class="form-control ng-untouched ng-pristine ng-valid" [(ngModel)]="furyLevel" (change)="calc()" id="furyLevel">
+                    <option *ngFor="let level of unbridledFury" value={{level.value}}>
+                        {{level.viewValue}}
+                      </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-3 col-form-label" for="freeForm">Free Form Multiplier %</label>
+            <div class="col-9">
+                <input [value]="freeForm" (input)="freeForm = $event.target.value; calc()" aria-describedby=" attackSpeedHelp " class="form-control ng-untouched ng-pristine ng-valid" step="100" type="number"> </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <th> Celebrate Stack </th>
+                <th> Calculated Speed </th>
+                <th> Actual Speed </th>
+                <th> Attacks per Second </th>
+            </thead>
+            <tbody>
+                <tr [style.background]=calcCol(attack) [style.color]=calcTextCol(attack) *ngFor="let attack of attackSpeeds; let i = index">
+                    <td> {{i>0?i:"None"}} </td>
+                    <td> {{round(attack.CalculatedSpeed)}} </td>
+                    <td> {{attack.RoundedSpeed}} </td>
+                    <td> {{round(attack.AttacksPerSecond)}} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
