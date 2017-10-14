@@ -1,20 +1,103 @@
-<!--The whole content below can be removed with the new code.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=" />
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/docs/ts/latest/tutorial/">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="http://angularjs.blogspot.ca/">Angular blog</a></h2>
-  </li>
-</ul>
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="navbar-collapse">
+        <a class="navbar-brand" href="#">Castle Clash Attack Speed Calculator</a>
+    </div>
+</nav>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-3 col-form-label" for="attackSpeed">Attack Speed</label>
+                <div class="col-9">
+                    <input [value]="attackSpeed" (input)="attackSpeed = $event.target.value; calc()" aria-describedby=" attackSpeedHelp " class="form-control ng-untouched ng-pristine ng-valid" step="200" type="number"> </div>
+            </div>
+            <div class="form-group row ">
+                <label class="col-3 col-form-label " for="celebrateLevel ">Celebrate</label>
+                <div class="col-9 ">
+                    <select class="form-control ng-untouched ng-pristine ng-valid " [(ngModel)]="celebrateLevel" (change)="calc()" id="celebrateLevel">
+                      <option *ngFor="let level of celebrate;" value={{level.value}}>
+                        {{level.viewValue}}
+                      </option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row ">
+                <label class="col-3 col-form-label " for="berzerkLevel">Berzerk</label>
+                <div class="col-9 ">
+                    <select class="form-control ng-untouched ng-pristine ng-valid" [(ngModel)]="berzerkLevel" (change)="calc()" id="berzerkLevel">
+                        <option *ngFor="let level of berzerk" value={{level.value}}>
+                            {{level.viewValue}}
+                          </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row ">
+                <label class="col-3 col-form-label " for="blitzScroll">Blitz Scroll</label>
+                <div class="col-9 ">
+                    <select class="form-control ng-untouched ng-pristine ng-valid" [(ngModel)]="blitzLevel" (change)="calc()" id="blitzScroll">
+                        <option *ngFor="let level of blitzScroll " value={{level.value}}>
+                            {{level.viewValue}}
+                          </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row ">
+                <label class="col-3 col-form-label " for="ariesFrenzy">Aries Frenzy</label>
+                <div class="col-9 ">
+                    <select class="form-control ng-untouched ng-pristine ng-valid" [(ngModel)]="frenzyLevel" (change)="calc()" id="ariesFrenzy">
+                        <option *ngFor="let level of ariesFrenzy " value={{level.value}}>
+                            {{level.viewValue}}
+                          </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row ">
+                <label class="col-3 col-form-label " for="divinity">Divinity</label>
+                <div class="col-9 ">
+                    <select class="form-control ng-untouched ng-pristine ng-valid" [(ngModel)]="divinityLevel" (change)="calc()" id="divinity">
+                        <option *ngFor="let level of divinity " value={{level.value}}>
+                            {{level.viewValue}}
+                          </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row ">
+                <label class="col-3 col-form-label " for="furyLevel">Unbridled Fury</label>
+                <div class="col-9 ">
+                    <select class="form-control ng-untouched ng-pristine ng-valid" [(ngModel)]="furyLevel" (change)="calc()" id="furyLevel">
+                        <option *ngFor="let level of unbridledFury" value={{level.value}}>
+                            {{level.viewValue}}
+                          </option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-3 col-form-label" for="freeForm">Free Form Multiplier %</label>
+                <div class="col-9">
+                    <input [value]="freeForm" (input)="freeForm = $event.target.value; calc()" aria-describedby=" attackSpeedHelp " class="form-control ng-untouched ng-pristine ng-valid" step="100" type="number"> </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <th> Celebrate Stack </th>
+                    <th> Calculated Speed </th>
+                    <th> Actual Speed </th>
+                    <th> Attacks per Second </th>
+                </thead>
+                <tbody>
+                    <tr [style.background]=calcCol(attack) [style.color]=calcTextCol(attack) *ngFor="let attack of attackSpeeds; let i = index">
+                        <td> {{i>0?i:"None"}} </td>
+                        <td> {{round(attack.CalculatedSpeed)}} </td>
+                        <td> {{attack.RoundedSpeed}} </td>
+                        <td> {{round(attack.AttacksPerSecond)}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<a class="github-fork-ribbon right-bottom " href="https://github.com/simonwhitaker/github-fork-ribbon-css " title="GitHub ">GitHub</a>
