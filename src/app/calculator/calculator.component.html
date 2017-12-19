@@ -66,10 +66,21 @@
                 </select>
             </div>
         </div>
+        <div class="form-group row ">
+            <label class="col-3 col-form-label " for="lightsRite">Light's Rite</label>
+            <div class="col-9 ">
+                <select class="form-control ng-untouched ng-pristine ng-valid" [(ngModel)]="lightsRiteLevel" (change)="calc()" id="lightsRite">
+                    <option *ngFor="let level of lightsRite" value={{level.value}}>
+                        {{level.viewValue}}
+                      </option>
+                </select>
+            </div>
+        </div>
         <div class="form-group row">
             <label class="col-3 col-form-label" for="freeForm">Free Form Multiplier %</label>
             <div class="col-9">
-                <input [value]="freeForm" (input)="freeForm = $event.target.value; calc()" aria-describedby=" attackSpeedHelp " class="form-control ng-untouched ng-pristine ng-valid" step="100" type="number"> </div>
+                <input [value]="freeForm" (input)="freeForm = $event.target.value; calc()" aria-describedby=" attackSpeedHelp " class="form-control ng-untouched ng-pristine ng-valid" step="100" type="number">
+            </div>
         </div>
     </div>
     <div class="col-md-6">

@@ -1,0 +1,34 @@
+export const lightsRite = [{
+  value: 1,
+  viewValue: 'None'
+}, {
+  value: 1.18,
+  viewValue: '1'
+}, {
+  value: 1.22,
+  viewValue: '2'
+}, {
+  value: 1.26,
+  viewValue: '3'
+}, {
+  value: 1.3,
+  viewValue: '4'
+}, {
+  value: 1.34,
+  viewValue: '5'
+}, {
+  value: 1.38,
+  viewValue: '6'
+}, {
+  value: 1.43,
+  viewValue: '7'
+}, {
+  value: 1.48,
+  viewValue: '8'
+}, {
+  value: 1.54,
+  viewValue: '9'
+}, {
+  value: 1.60,
+  viewValue: '10'
+}]

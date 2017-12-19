@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { AppRoutingModuleModule } from 'app/app-routing-module.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { CalculatorComponent } from './calculator/calculator.component';
     CalculatorComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule,
+    AppRoutingModuleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

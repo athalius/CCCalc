@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { berserk } from 'app/const/berzerk.const';
+import { ariesFrenzy } from 'app/const/ariesFrenzy.const'
+import { blitzScroll } from 'app/const/blitzScroll.const'
+import { celebrate } from 'app/const/celebrate.const'
+import { divinity } from 'app/const/divinity.const'
+import { unbridledFury } from 'app/const/unbridledFury.const'
+import { lightsRite } from 'app/const/lightsRite.const'
 
 @Component({
   selector: 'app-calculator',
@@ -14,6 +21,7 @@ export class CalculatorComponent implements OnInit {
   frenzyLevel = null;
   divinityLevel = null
   furyLevel = null;
+  lightsRiteLevel = null;
   freeForm = 0;
 
   berzerk = null
@@ -22,6 +30,7 @@ export class CalculatorComponent implements OnInit {
   blitzScroll = null
   unbridledFury = null
   divinity = null
+  lightsRite = null
 
   attackSpeeds = [{
     CalculatedSpeed: 1000,
@@ -31,12 +40,13 @@ export class CalculatorComponent implements OnInit {
   title = 'CC Attack speed calc';
 
   constructor() {
-    this.berzerk = berserk
+    this.berzerk = berserk;
     this.celebrate = celebrate
     this.ariesFrenzy = ariesFrenzy
     this.blitzScroll = blitzScroll
     this.unbridledFury = unbridledFury
     this.divinity = divinity
+    this.lightsRite = lightsRite
   }
 
   ngOnInit() {
@@ -46,16 +56,21 @@ export class CalculatorComponent implements OnInit {
     this.frenzyLevel = this.ariesFrenzy[0].value
     this.divinityLevel = this.divinity[0].value
     this.furyLevel = this.unbridledFury[0].value
+    this.lightsRiteLevel = this.lightsRite[0].value
   }
 
   calc = function () {
     const freeMulti = this.freeForm / 100;
     this.attackSpeeds = [{
       CalculatedSpeed: this.calcAttackSpeed(
-        this.attackSpeed, freeMulti, this.berzerkLevel, this.blitzLevel, this.frenzyLevel, this.divinityLevel, this.furyLevel),
+        this.attackSpeed, freeMulti, this.berzerkLevel,
+        this.blitzLevel, this.frenzyLevel, this.divinityLevel,
+        this.furyLevel, this.lightsRiteLevel),
       RoundedSpeed: 200 * Math.ceil(
         this.calcAttackSpeed(
-          this.attackSpeed, freeMulti, this.berzerkLevel, this.blitzLevel, this.frenzyLevel, this.divinityLevel, this.furyLevel) / 200,
+          this.attackSpeed, freeMulti, this.berzerkLevel,
+          this.blitzLevel, this.frenzyLevel, this.divinityLevel,
+          this.furyLevel, this.lightsRiteLevel) / 200,
       ),
       AttacksPerSecond: 1
     }]
@@ -73,9 +88,11 @@ export class CalculatorComponent implements OnInit {
     }
 
   }
-  calcAttackSpeed = function (attackSpeed, freeMultipler, berzerkLevel, blitzLevel, frenzyLevel, divinityLevel, furyLevel) {
+  calcAttackSpeed = function (
+    attackSpeed, freeMultipler, berzerkLevel,
+    blitzLevel, frenzyLevel, divinityLevel, furyLevel, lightsRiteLevel) {
     if (freeMultipler === 0) { freeMultipler = 1 }
-    return attackSpeed / (freeMultipler * berzerkLevel * blitzLevel * frenzyLevel * divinityLevel * furyLevel)
+    return attackSpeed / (freeMultipler * berzerkLevel * blitzLevel * frenzyLevel * divinityLevel * furyLevel * lightsRiteLevel)
   }
   round = function (l, n = 3) {
 
